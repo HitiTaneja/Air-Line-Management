@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.modal">
+	<class name="Flight_Price" table="Flight_Price" >
+        <id name="flight_code" type="java.lang.String">
+            <column name="FLIGHT_CODE" />
+        </id>
+        <property name="business_adult" type="int">
+            <column name="BUSINESS_ADULT" />
+        </property>
+        <property name="business_child" type="int">
+            <column name="BUSINESS_CHILD" />
+        </property>
+        <property name="economy_adult" type="int">
+            <column name="ECONOMY_ADULT" />
+        </property>
+        <property name="economy_child" type="int">
+            <column name="ECONOMY_CHILD" />
+        </property>
+       </class>
+</hibernate-mapping>
+        

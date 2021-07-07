@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<title>Search By Date</title>
+</head>
+<body>
+<form action="SearchByDate" method = "post">
+	Enter date : <input required  id="date-withminvalue" type="date" name="date-withminvalue">
+	<!-- min="2000-01-02" -->
+	<button>Submit</button>
+</form>
+<script>
+$(document).ready(function() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1;
+	var yy = today.getFullYear();
+	if (dd<10) {
+		dd = '0' + dd;
+	}
+	if (mm<10) {
+		mm = '0' + mm;
+	}
+	var rightnow = yy + '-' + mm + '-' + dd;
+	$('#date-withminvalue').attr('min', rightnow);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<title>Booking</title>
+</head>
+<body>
+<!-- payment has to made -->
+<form action="Booking" method="post">
+Enter flight code : <input type="text" id="flight_code" name="flight_code"><br>
+Enter Airline Id : <input type="text" id="airlineid" name="airlineid"><br>
+Enter Class : <input type="text" id="fclass" name="fclass"><br>
+Passenger Name 1 : <input type="text" id="pass_name1" name="pass_name1"><br>
+Passenger Name 2 : <input type="text" id="pass_name2" name="pass_name2"><br>
+Passenger Name 3 : <input type="text" id="pass_name3" name="pass_name3"><br>
+Passenger Name 4 : <input type="text" id="pass_name4" name="pass_name4"><br>
+Date of Travel : <input type="date" id="datepicker" name="datepicker"><br>
+No of Child : <input type="text" id="child_num" name="child_num"><br>
+No of Adult : <input type="text" id="adult_num" name="adult_num"><br>
+<button>Submit</button>
+</form>
+<script>
+$(document).ready(function() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1;
+	var yy = today.getFullYear();
+	var newmonth = mm+6	;
+	var newyear;
+	var newMM;
+	if(newmonth>12){
+		newMM = newmonth%12;
+		newyear = yy+1;
+	}
+	else{
+		newMM = newmonth;
+		newyear = yy;
+	}
+	if (dd<10) {
+		dd = '0' + dd;
+	}
+	if (mm<10) {
+		mm = '0' + mm;
+	}
+	if(newMM<10){
+		newMM = '0' + newMM;
+	}
+	/* document.write("new Year "+newyear+" new month "+newMM+" new Date "+dd); */
+	var maxNow = newyear + '-' + newMM + '-' + dd;
+	/* document.write("maxNow "+maxNow); */
+	var rightnow = yy + '-' + mm + '-' + dd;
+	$('#datepicker').attr('min', rightnow);
+	$('#datepicker').attr('max', maxNow);	
+}); 
+</script>
+
+</body>
+</html>

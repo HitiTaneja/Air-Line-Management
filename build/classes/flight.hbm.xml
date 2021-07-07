@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.modal">
+	<class name="Flight" table="Flight" >
+        <id name="flight_code" type="java.lang.String">
+            <column name="FLIGHT_CODE" />
+        </id>
+        <property name="source" type="java.lang.String">
+            <column name="SOURCE" />
+        </property>
+        <property name="destination" type="java.lang.String">
+            <column name="DESTINATION" />
+        </property>
+        <property name="arrival" type="java.lang.String">
+        	<column name="ARRIVAL" />
+        </property>
+        <property name="departure" type="java.lang.String">
+        	<column name="DEPARTURE" />
+        </property>
+        <property name="status" type="java.lang.String">
+        	<column name="STATUS" />
+        </property>
+        <property name="duration" type="java.lang.String">
+        	<column name="DURATION" />
+        </property>
+        <property name="flighttype" type="java.lang.String">
+        	<column name="FLIGHTTYPE" />
+        </property>
+        <property name="layover_time" type="java.lang.String">
+        	<column name="LAYOVER_TIME" />
+        </property>
+        <property name="days" type="java.lang.String">
+        	<column name="DAYS" />
+        </property>
+        <property name="planetype" type="java.lang.String">
+        	<column name="PLANETYPE" />
+        </property>
+        <property name="no_of_stops" type="int">
+        	<column name="NO_OF_STOPS" />
+        </property>
+        <many-to-one name="airline" class ="Airline" fetch="select" lazy="false">
+        	<column name="AIRLINEID" not-null="true"></column>
+        </many-to-one>
+       <one-to-one name="seat_availability" class="Seat_Availability"></one-to-one>
+       <one-to-one name="flight_price" class="Flight_Price"></one-to-one>
+       <set name="booking_Details" table="booking_details" inverse="true" cascade="save-update" lazy="false">
+            <key>
+                <column name="FLIGHT_CODE" not-null="true" />
+            </key>
+            <one-to-many class="Booking_Details" />
+        </set>
+    </class>
+   </hibernate-mapping>

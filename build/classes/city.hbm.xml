@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.modal">
+	<class name="City" table="City">
+        <id name="cname" type="java.lang.String">
+            <column name="CNAME" />
+        </id>
+        <property name="state" type="java.lang.String">
+            <column name="STATE"/>
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="COUNTRY" />
+        </property>
+       </class>
+     </hibernate-mapping>

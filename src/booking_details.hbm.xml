@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.modal">
+	<class name="Booking_Details" table="booking_details" >
+	<id name="pnr_number" type="int">
+            <column name="PNR_NUMBER" />
+        </id>
+        <property name="pass_name1" type="java.lang.String">
+            <column name="PASS_NAME1" />
+        </property>
+        <property name="pass_name2" type="java.lang.String">
+            <column name="PASS_NAME2" />
+        </property>
+        <property name="pass_name3" type="java.lang.String">
+            <column name="PASS_NAME3" />
+        </property>
+        <property name="pass_name4" type="java.lang.String">
+            <column name="PASS_NAME4" />
+        </property>
+        <property name="fclass" type="java.lang.String">
+            <column name="FCLASS" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="date_of_travel" type="java.lang.String">
+            <column name="DATE_OF_TRAVEL" />
+        </property>
+        <property name="child_num" type="int">
+            <column name="CHILD_NUM" />
+        </property>
+        <property name="adult_num" type="int">
+            <column name="ADULT_NUM" />
+        </property>
+        <many-to-one name="flight" class="Flight" lazy="false" insert="true">
+            <column name="FLIGHT_CODE" />
+        </many-to-one>
+        <many-to-one name="airline" class="Airline" lazy="false" insert="true">
+        	<column name="AIRLINEID"></column>        
+        </many-to-one>
+        <property name="amount" type="float">
+            <column name="AMOUNT" />
+        </property>
+        <property name="contactNo" type="java.lang.String">
+            <column name="CONTACTNO" />
+        </property>
+        <property name="emailId" type="java.lang.String">
+            <column name="EMAILID" />
+        </property>
+       </class>
+      </hibernate-mapping>
+      

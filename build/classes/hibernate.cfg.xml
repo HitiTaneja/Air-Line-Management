@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection properties - Driver, URL, user, password -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property> 
+
+		<property name="hibernate.connection.username">hr</property>
+		<property name="hibernate.connection.password">HR</property>
+		
+		<!-- Connection Pool Size -->
+		<property name="hibernate.connection.pool_size">1</property>
+		
+		<!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- Outputs the SQL queries, should be disabled in Production -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- Dialect is required to let Hibernate know the Database Type, MySQL, Oracle etc
+			Hibernate 4 automatically figure out Dialect from Database Connection Metadata -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> 
+
+		<!-- mapping file, we can use Bean annotations too -->
+		<mapping resource = "airline.hbm.xml"/> 
+		<mapping resource ="flight.hbm.xml"/>
+		<mapping resource="seat_availability.hbm.xml"/>
+		<mapping resource="flight_price.hbm.xml"/>
+		<mapping resource="booking_details.hbm.xml"/>
+		<mapping resource="concession.hbm.xml"/>
+		<mapping resource="requirement_concession.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

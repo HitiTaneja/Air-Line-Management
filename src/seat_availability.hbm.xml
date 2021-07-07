@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.modal">
+	<class name="Seat_Availability" table="Seat_Availablity">
+		<id name="flight_code" type="java.lang.String">
+			<column name="FLIGHT_CODE"></column>
+		</id>
+		<property name="business_class" type="java.lang.Integer">
+			<column name="BUSINESS_CLASS"></column>		
+		</property>
+		<property name="economy_class" type="java.lang.Integer">
+			<column name="ECONOMY_CLASS"></column>
+		</property>
+	</class>
+</hibernate-mapping>
